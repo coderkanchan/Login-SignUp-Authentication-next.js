@@ -10,7 +10,7 @@ export async function POST(req) {
     await connectDB();
     const { name, email, password } = await req.json();
 
-    // check if user already exists
+   
     const userExists = await User.findOne({ email });
     if (userExists) {
       return NextResponse.json({ message: "User already exists" }, { status: 400 });
@@ -36,31 +36,19 @@ export async function POST(req) {
       { status: 201 }
     );
 
-    // res.cookies.set("token", token, {
-    //   httpOnly: true,
-    //   secure: false,
-    //   sameSite: "lax",
-    //   path: "/",
-    //   maxAge: 24 * 60 * 60, // 1 day
-    // });
-
     res.cookies.set("token", token, {
       httpOnly: true,
-      // 💡 सुधार: secure: false सेट करें ताकि localhost पर काम करे
       secure: false,
       sameSite: "lax",
       path: "/",
-      maxAge: 24 * 60 * 60, // 1 day
+      maxAge: 24 * 60 * 60, 
     });
 
     return res;
 
-    // return NextResponse.json({ message: "User registered successfully" }, { status: 201 });
-
   } catch (error) {
     console.error("Register error:", error);
     return NextResponse.json({ message: "Server error during register" }, { status: 500 });
-    //return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }
 
