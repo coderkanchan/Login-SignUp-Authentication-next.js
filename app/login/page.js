@@ -42,7 +42,6 @@ export default function LoginPage() {
       setIsSuccess(false);
       setMessage('❌ Something went wrong');
     }
-
   };
 
   return (
