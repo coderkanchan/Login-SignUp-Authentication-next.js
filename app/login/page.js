@@ -30,7 +30,6 @@ export default function LoginPage() {
         setPassword('');
         //localStorage.setItem("isLoggedIn", "true");
         setTimeout(() => {
-            // window.location.href = "/dashboard";
             router.push("/dashboard"); 
         }, 800);
       } else {
