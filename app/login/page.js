@@ -28,7 +28,6 @@ export default function LoginPage() {
         setMessage('✅ Login successful! Redirecting...');
         setEmail('');
         setPassword('');
-        //localStorage.setItem("isLoggedIn", "true");
         setTimeout(() => {
             router.push("/dashboard"); 
         }, 800);
@@ -59,7 +58,6 @@ export default function LoginPage() {
           <span onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-3 cursor-pointer text-gray-600" >
             {showPassword ? <FaEye /> : <FaEyeSlash />}
           </span>
-
         </div>
 
         <button type="submit" className="bg-blue-500 text-white py-2 rounded cursor-pointer hover:bg-blue-600">Login</button>
